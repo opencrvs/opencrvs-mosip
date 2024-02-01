@@ -31,7 +31,8 @@ import {
   registrationPhone,
   getEducation,
   getOccupation,
-  divider
+  divider,
+  getNIDVerificationButton
 } from '../common/common-optional-fields'
 import {
   attendantAtBirth,
@@ -331,12 +332,13 @@ export const birthForm: ISerializedForm = {
               certificateHandlebars.motherNationality,
               detailsExist
             ), // Required field.
-            getNationalID(
-              'iD',
-              hideIfNidIntegrationEnabled.concat(detailsExist),
-              getNationalIDValidators('mother'),
-              certificateHandlebars.motherNID
-            ),
+            // getNationalID(
+            //   'iD',
+            //   hideIfNidIntegrationEnabled.concat(detailsExist),
+            //   getNationalIDValidators('mother'),
+            //   certificateHandlebars.motherNID
+            // ),
+            getNIDVerificationButton('iD', [], []),
             // preceding field of address fields
             divider('mother-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
@@ -410,12 +412,13 @@ export const birthForm: ISerializedForm = {
               certificateHandlebars.fatherNationality,
               detailsExist
             ), // Required field.
-            getNationalID(
-              'iD',
-              hideIfNidIntegrationEnabled.concat(detailsExist),
-              getNationalIDValidators('father'),
-              certificateHandlebars.fatherNID
-            ),
+            // getNationalID(
+            //   'iD',
+            //   hideIfNidIntegrationEnabled.concat(detailsExist),
+            //   getNationalIDValidators('father'),
+            //   certificateHandlebars.fatherNID
+            // ),
+            getNIDVerificationButton('iD', [], []),
             // preceding field of address fields
             divider('father-nid-seperator', detailsExist),
             // ADDRESS FIELDS WILL RENDER HERE
