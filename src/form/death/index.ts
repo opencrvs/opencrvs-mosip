@@ -15,7 +15,8 @@ import {
   getMaritalStatus,
   registrationEmail,
   registrationPhone,
-  divider
+  divider,
+  getNIDVerificationButton
   // getOccupation
 } from '../common/common-optional-fields'
 import {
@@ -281,12 +282,13 @@ export const deathForm = {
               ageOfIndividualConditionals
             ),
             getNationality(certificateHandlebars.informantNationality, []),
-            getNationalID(
-              'informantID',
-              hideIfNidIntegrationEnabled,
-              getNationalIDValidators('informant'),
-              certificateHandlebars.informantNID
-            ),
+            // getNationalID(
+            //   'informantID',
+            //   hideIfNidIntegrationEnabled,
+            //   getNationalIDValidators('informant'),
+            //   certificateHandlebars.informantNID
+            // ),
+            getNIDVerificationButton('informantID', [], []),
             // ADDRESS FIELDS WILL RENDER HERE
             divider('informant-address-separator'),
             registrationPhone,
