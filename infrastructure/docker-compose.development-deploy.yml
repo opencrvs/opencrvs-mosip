@@ -106,3 +106,38 @@ services:
     environment:
       - QA_ENV=true
       - NODE_ENV=production
+
+  mosiptokenseeder:
+    image: mosipdev/mosip-token-seeder:develop
+    ports:
+      - '8085:8080'
+    deploy:
+      replicas: 1
+    networks:
+      - overlay_net
+    volumes:
+      - /data/secrets/mosip:/seeder/certs
+    restart: unless-stopped
+    environment:
+      - TOKENSEEDER_MOSIP_AUTH__PARTNER_APIKEY=${TOKENSEEDER_MOSIP_AUTH__PARTNER_APIKEY}
+      - TOKENSEEDER_MOSIP_AUTH__PARTNER_MISP_LK=${TOKENSEEDER_MOSIP_AUTH__PARTNER_MISP_LK}
+      - TOKENSEEDER_MOSIP_AUTH__PARTNER_ID=opencrvs-auth-partner
+      - TOKENSEEDER_MOSIP_AUTH_SERVER__IDA_AUTH_DOMAIN_URI=https://api-internal.collab.mosip.net
+      - TOKENSEEDER_MOSIP_AUTH_SERVER__IDA_AUTH_URL=https://api.collab.mosip.net/idauthentication/v1/auth
+      - TOKENSEEDER_CRYPTO_SIGNATURE__SIGN_P12_FILE_PASSWORD=${TOKENSEEDER_CRYPTO_SIGNATURE__SIGN_P12_FILE_PASSWORD}
+      - TOKENSEEDER_AUTHTOKEN__MANDATORY_VALIDATION_AUTH_FIELDS="name,gender,dob"
+      - TOKENSEEDER_CRYPTO_ENCRYPT__ENCRYPT_CERT_PATH=/seeder/certs/ida.partner.crt
+      - TOKENSEEDER_CRYPTO_SIGNATURE__SIGN_P12_FILE_PATH=/seeder/certs/keystore.p12
+      - TOKENSEEDER_ROOT__SYNC_OPERATION_MODE=true
+
+  mosip-mediator:
+    image: opencrvs/mosip-api:master
+    ports:
+      - '4545:4545'
+    deploy:
+      replicas: 1
+    networks:
+      - overlay_net
+    environment:
+      - AUTH_URL=http://auth:4040
+      - WEBHOOK_URL=http://countryconfig:3034/mosip-openhim-mediator

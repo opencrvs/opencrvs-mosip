@@ -60,6 +60,7 @@ import { trackingIDHandler } from './api/tracking-id/handler'
 import { dashboardQueriesHandler } from './api/dashboards/handler'
 import { fontsHandler } from './api/fonts/handler'
 import { certificateConfigurationHandler } from './api/certificate-configuration/handler'
+import { mosipMediatorHandler } from './api/mosip-openhim-mediator/handler'
 
 export interface ITokenPayload {
   sub: string
@@ -509,6 +510,16 @@ export async function createServer() {
     options: {
       tags: ['api'],
       description: 'Provides a tracking id'
+    }
+  })
+
+  server.route({
+    method: 'POST',
+    path: '/mosip-openhim-mediator',
+    handler: mosipMediatorHandler,
+    options: {
+      tags: ['api'],
+      description: 'Handles submission of mosip generaed NID'
     }
   })
 
