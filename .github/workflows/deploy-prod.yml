@@ -1,4 +1,4 @@
-name: Deploy (production)
+name: Deploy production (MEC)
 run-name: Deploy to ${{ github.event.inputs.environment }} core=${{ github.event.inputs.core-image-tag }} country config=${{ github.event.inputs.countryconfig-image-tag }}
 on:
   workflow_dispatch:
@@ -7,10 +7,9 @@ on:
         type: choice
         description: Environment to deploy to
         required: true
-        default: 'staging'
+        default: 'production'
         options:
           - production
-          - staging
       core-image-tag:
         description: Core DockerHub image tag
         required: true
