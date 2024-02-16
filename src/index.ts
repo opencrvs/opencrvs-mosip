@@ -424,6 +424,23 @@ export async function createServer() {
       tags: ['api'],
       validate: {
         payload: notificationSchema
+      }
+    }
+  })
+
+  server.route({
+    method: 'POST',
+    path: '/email',
+    handler: emailHandler,
+    options: {
+      /*
+       * In deployed environments, the email path is blocked by Traefik.
+       * See docker-compose.deploy.yml for more details.
+       */
+      auth: false,
+      tags: ['api'],
+      validate: {
+        payload: emailSchema
       },
       description:
         'Handles sending either SMS or email using a predefined template file'

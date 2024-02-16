@@ -20,7 +20,6 @@ export const defaultApplicationConfig = {
     },
     PRINT_IN_ADVANCE: true
   },
-  MARRIAGE_REGISTRATION: false,
   MARRIAGE: {
     REGISTRATION_TARGET: 45,
     FEE: {
@@ -29,7 +28,6 @@ export const defaultApplicationConfig = {
     },
     PRINT_IN_ADVANCE: true
   },
-  DATE_OF_BIRTH_UNKNOWN: false,
   CURRENCY: {
     languagesAndCountry: ['en-US'],
     isoCode: 'USD'
@@ -40,6 +38,9 @@ export const defaultApplicationConfig = {
   LOGIN_BACKGROUND: {
     backgroundColor: '36304E'
   },
+  // Following constants aren't configurable via UI
+  MARRIAGE_REGISTRATION: false,
+  DATE_OF_BIRTH_UNKNOWN: false,
   INFORMANT_SIGNATURE: false,
   INFORMANT_SIGNATURE_REQUIRED: false,
   EXTERNAL_VALIDATION_WORKQUEUE: false,

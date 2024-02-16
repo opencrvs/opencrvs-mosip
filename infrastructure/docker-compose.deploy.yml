@@ -13,7 +13,7 @@ services:
   # Note: these published port will override UFW rules as Docker manages it's own iptables
   # Only publish the exact ports that are required for OpenCRVS to work
   traefik:
-    image: 'traefik:v2.9'
+    image: 'traefik:v2.10'
     ports:
       - target: 80
         published: 80
@@ -32,10 +32,11 @@ services:
       - --api.dashboard=true
       - --api.insecure=true
       - --log.level=WARNING
-      - --certificatesresolvers.certResolver.acme.email=ryan@jembi.org
+      - --certificatesresolvers.certResolver.acme.email=riku@opencrvs.org
       - --certificatesresolvers.certResolver.acme.storage=acme.json
       - --certificatesresolvers.certResolver.acme.caserver=https://acme-v02.api.letsencrypt.org/directory
       - --certificatesresolvers.certResolver.acme.httpchallenge.entrypoint=web
+      - --certificatesresolvers.certResolver.acme.httpchallenge=true
       - --entrypoints.web.http.redirections.entryPoint.to=websecure
       - --entrypoints.web.http.redirections.entryPoint.scheme=https
       - --entrypoints.web.http.redirections.entrypoint.permanent=true
@@ -87,8 +88,9 @@ services:
 
   metricbeat:
     image: docker.elastic.co/beats/metricbeat:7.17.13
-
     user: root
+    cap_add:
+      - SYS_PTRACE
     volumes:
       - /proc:/hostfs/proc:ro
       - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro

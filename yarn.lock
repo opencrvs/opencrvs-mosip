@@ -2680,6 +2680,11 @@
   resolved "https://registry.yarnpkg.com/@types/mime-db/-/mime-db-1.43.3.tgz#f7bec64a9a62ddded3371e82862c0516539710e8"
   integrity sha512-vg0UsF1p1Qi/8iCARoie7F/Ng92zo7tQlL+sqE15GonkKVl55n/0vB6jSbrYTgDO0PSx9pKfGG1iZg9gJum3wA==
 
+"@types/minimist@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.5.tgz#ec10755e871497bcd83efe927e43ec46e8c0747e"
+  integrity sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==
+
 "@types/mute-stream@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@types/mute-stream/-/mute-stream-0.0.4.tgz#77208e56a08767af6c5e1237be8888e2f255c478"

@@ -27,12 +27,13 @@
     "strictNullChecks": true,
     "types": [
       "fhir",
+      "jest",
       "geojson"
     ]
   },
   "include": [
     "src/**/*.ts",
-    "infrastructure/ci/**/*.ts",
+    "infrastructure/environments/**/*.ts",
     "typings"
   ],
   "exclude": [
