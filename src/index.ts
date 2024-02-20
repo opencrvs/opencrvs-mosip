@@ -424,7 +424,9 @@ export async function createServer() {
       tags: ['api'],
       validate: {
         payload: notificationSchema
-      }
+      },
+      description:
+        'Handles sending either SMS or email using a predefined template file'
     }
   })
 
@@ -442,8 +444,7 @@ export async function createServer() {
       validate: {
         payload: emailSchema
       },
-      description:
-        'Handles sending either SMS or email using a predefined template file'
+      description: 'Handles sending SMS'
     }
   })
 

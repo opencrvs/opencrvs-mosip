@@ -7,9 +7,10 @@ on:
         type: choice
         description: Environment to deploy to
         required: true
-        default: 'production'
+        default: 'staging'
         options:
           - production
+          - staging
       core-image-tag:
         description: Core DockerHub image tag
         required: true
