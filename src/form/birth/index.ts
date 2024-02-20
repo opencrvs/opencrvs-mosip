@@ -60,7 +60,7 @@ import {
   fatherFamilyNameConditionals,
   informantNotMotherOrFather,
   detailsExistConditional,
-  ageOfIndividualConditionals,
+  ageOfIndividualValidators,
   ageOfParentsConditionals
 } from '../common/default-validation-conditionals'
 import {
@@ -73,6 +73,8 @@ import { documentsSection, registrationSection } from './required-sections'
 import { certificateHandlebars } from './certificate-handlebars'
 import { getSectionMapping } from '@countryconfig/utils/mapping/section/birth/mapping-utils'
 import { getCommonSectionMapping } from '@countryconfig/utils/mapping/field-mapping-utils'
+import { getReasonForLateRegistration } from '../custom-fields'
+import { getIDNumberFields, getIDType } from '../custom-fields'
 // import { createCustomFieldExample } from '../custom-fields'
 
 // ======================= FORM CONFIGURATION =======================
@@ -187,6 +189,7 @@ export const birthForm: ISerializedForm = {
               isValidChildBirthDate,
               certificateHandlebars.eventDate
             ), // Required field.
+            getReasonForLateRegistration('birth'),
             // PLACE OF BIRTH FIELDS WILL RENDER HERE
             divider('place-of-birth-seperator'),
             attendantAtBirth,
@@ -249,7 +252,7 @@ export const birthForm: ISerializedForm = {
               exactDateOfBirthUnknownConditional.concat(
                 hideIfInformantMotherOrFather
               ),
-              ageOfIndividualConditionals
+              ageOfIndividualValidators
             ),
             getNationality(
               certificateHandlebars.informantNationality,
@@ -352,7 +355,12 @@ export const birthForm: ISerializedForm = {
               }
             ]),
             getEducation(certificateHandlebars.motherEducationalAttainment),
-            getOccupation(certificateHandlebars.motherOccupation),
+            getOccupation(certificateHandlebars.motherOccupation, [
+              {
+                action: 'hide',
+                expression: '!values.detailsExist'
+              }
+            ]),
             multipleBirth
           ],
           previewGroups: [motherNameInEnglish]
@@ -432,7 +440,12 @@ export const birthForm: ISerializedForm = {
               }
             ]),
             getEducation(certificateHandlebars.fatherEducationalAttainment),
-            getOccupation(certificateHandlebars.fatherOccupation)
+            getOccupation(certificateHandlebars.fatherOccupation, [
+              {
+                action: 'hide',
+                expression: '!values.detailsExist'
+              }
+            ])
           ],
           previewGroups: [fatherNameInEnglish]
         }

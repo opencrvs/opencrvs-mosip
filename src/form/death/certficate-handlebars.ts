@@ -38,9 +38,13 @@ export const certificateHandlebars = {
   districtPrimaryDeceased: 'districtPrimaryDeceased', // @deprecated use districtPrimaryDeceasedId instead
   districtPrimaryDeceasedId: 'districtPrimaryDeceasedId',
   cityPrimaryDeceased: 'cityPrimaryDeceased',
-  addressLine3PrimaryDeceased: 'addressLine3PrimaryDeceased',
-  addressLine2PrimaryDeceased: 'addressLine2PrimaryDeceased',
-  addressLine1PrimaryDeceased: 'addressLine1PrimaryDeceased',
+  ageOfDeceasedInYears: 'ageOfDeceasedInYears',
+  addressLine3UrbanOptionPrimaryDeceased:
+    'addressLine3UrbanOptionPrimaryDeceased',
+  addressLine2UrbanOptionPrimaryDeceased:
+    'addressLine2UrbanOptionPrimaryDeceased',
+  addressLine1UrbanOptionPrimaryDeceased:
+    'addressLine1UrbanOptionPrimaryDeceased',
   postalCodePrimaryDeceased: 'postalCodePrimaryDeceased',
   internationalStatePrimaryDeceased: 'internationalStatePrimaryDeceased',
   internationalDistrictPrimaryDeceased: 'internationalDistrictPrimaryDeceased',
@@ -57,8 +61,12 @@ export const certificateHandlebars = {
   causeOfDeathEstablished: 'causeOfDeathEstablished',
   causeOfDeathMethod: 'causeOfDeathMethod',
   deathDescription: 'deathDescription',
-  placeOfDeath: 'placeOfDeath',
-  countryPlaceofdeath: 'countryPlaceofdeath',
+  placeOfDeath: 'placeOfDeath', // equal to either the name of a HEALTH_FACILITY or undefined
+  placeOfDeathCountry: 'placeOfDeathCountry', // used where event occurs in a HEALTH_FACILITY
+  placeOfDeathDistrict: 'placeOfDeathDistrict', // used where event occurs in a HEALTH_FACILITY
+  placeOfDeathFacility: 'placeOfDeathFacility', // used where event occurs in a HEALTH_FACILITY
+  placeOfDeathState: 'placeOfDeathState', // used where event occurs in a HEALTH_FACILITY
+  countryPlaceofdeath: 'countryPlaceofdeath', // THE FOLLOWING are used where event occurs in a PRIVATE_HOME or OTHER therefore placeOfBirth is undefined
   statePlaceofdeath: 'statePlaceofdeath', // @deprecated use statePlaceofdeathId instead
   statePlaceofdeathId: 'statePlaceofdeathId',
   districtPlaceofdeath: 'districtPlaceofdeath', // @deprecated use districtPlaceofdeathId instead
