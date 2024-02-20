@@ -24,7 +24,7 @@
 </g>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Noto Sans" font-size="8" letter-spacing="0px"><tspan x="234.289" y="667.552">&#x2028;</tspan><tspan x="81" y="680.352">{{certificateDate}}</tspan></text>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Noto Sans" font-size="8" font-weight="600" letter-spacing="0px"><tspan x="81" y="667.552">Date of certification / Date de d&#xe9;livrance</tspan></text>
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Noto Sans" font-size="8" letter-spacing="0px"><tspan x="240.727" y="701.312">&#x2028;</tspan><tspan x="81" y="714.112">{{location registrar.officeId 'name'}}</tspan><tspan x="81" y="726.912">{{location registrar.districtId 'name'}}, {{location registrar.stateId 'name'}}, Farajaland</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Noto Sans" font-size="8" letter-spacing="0px"><tspan x="240.727" y="701.312">&#x2028;</tspan><tspan x="81" y="714.112">{{registrar.office.name}}</tspan><tspan x="81" y="726.912">{{location registrar.district.id 'name'}}, {{location registrar.state.id 'name'}}, India</tspan></text>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Noto Sans" font-size="8" font-weight="600" letter-spacing="0px"><tspan x="81" y="701.312">Place of certification / Lieu de certification</tspan></text>
 <g clip-path="url(#clip2_1157_5110)">
 <rect x="321.759" y="656.829" width="190.241" height="65.8389" fill="url(#pattern1)"/>
@@ -80,7 +80,7 @@
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Noto Sans" font-size="9.7" font-weight="bold" letter-spacing="0px"><tspan x="205.289" y="424.583">&#x2028;</tspan></text>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Noto Sans" font-size="9.7" font-weight="bold" letter-spacing="0px"><tspan x="104.68" y="424.583">Place of registration /</tspan></text>
 <g clip-path="url(#clip9_1157_5110)">
-<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Noto Sans" font-size="9.7" letter-spacing="0px"><tspan x="289.95" y="424.583">{{location registrar.officeId 'name'}}&#x2028;</tspan><tspan x="289.95" y="439.583">{{location registrar.districtId 'name'}}, {{location registrar.stateId 'name'}}, Farajaland</tspan></text>
+<text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Noto Sans" font-size="9.7" letter-spacing="0px"><tspan x="289.95" y="424.583">{{location registrar.office.id 'name'}}&#x2028;</tspan><tspan x="289.95" y="439.583">{{location registrar.district.id 'name'}}, {{location registrar.state.id 'name'}}, India</tspan></text>
 </g>
 <line x1="81.3997" y1="448.655" x2="512.08" y2="448.655" stroke="#ECECEC" stroke-width="0.97"/>
 <text fill="#222222" xml:space="preserve" style="white-space: pre" font-family="Noto Sans" font-size="9.7" font-weight="bold" letter-spacing="0px"><tspan x="88.6027" y="466.224">7.</tspan></text>
